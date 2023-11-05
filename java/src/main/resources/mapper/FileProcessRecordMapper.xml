@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wbx.persistence.mapper.FileProcessRecordMapper">
+    <select id="selectFileRecordList" resultType="com.wbx.entity.FileProcessRecord">
+        select * from file_process_record
+        <if test="status != null">
+            WHERE status = #{status}
+        </if>
+    </select>
+
+    <insert id="insertRecord" parameterType="com.wbx.entity.FileProcessRecord">
+        insert into file_process_record(`file_name`, `path`, `status`)
+        values (#{fileName}, #{path}, #{status})
+    </insert>
+
+    <update id="updateStatus">
+        update file_process_record set status = #{status} where file_name = #{fileName}
+    </update>
+
+    <update id="updateRecord" parameterType="com.wbx.entity.FileProcessRecord">
+        update file_process_record
+        <set>
+            <if test="status != null">status = #{status}</if>
+            <if test="path != null and path != ''">, path = #{path}</if>
+        </set>
+        where file_name = #{fileName}
+    </update>
+
+</mapper>

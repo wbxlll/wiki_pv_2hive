@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration>
+    <property>
+        <name>hive.metastore.uris</name>
+        <value>thrift://192.168.137.104:9083</value>
+    </property>
+    <!-- jdbc连接的URL -->
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://192.168.137.104:3306/metastore?useSSL=false</value>
+    </property>
+
+    <!-- jdbc连接的Driver-->
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.cj.jdbc.Driver</value>
+    </property>
+
+    <!-- jdbc连接的username-->
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>root</value>
+    </property>
+
+    <!-- jdbc连接的password -->
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value></value>
+    </property>
+
+    <!-- Hive默认在HDFS的工作目录 -->
+    <property>
+        <name>hive.metastore.warehouse.dir</name>
+        <value>/user/hive/warehouse</value>
+    </property>
+</configuration>
